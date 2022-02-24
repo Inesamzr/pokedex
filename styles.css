@@ -1,0 +1,120 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #80aaff;
+}
+
+#logo-pokemon{
+    width: 30%;
+    margin-top: 10px;
+    height: auto;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    padding-left: 35%;
+
+}
+.search-box{
+    position: absolute;
+    top:28%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #3366cc;
+    height: 40px;
+    border-radius: 40px ;
+    padding: 10px
+}
+.search-box:hover > .search-txt{
+    width: 240px;
+    padding: 0 6px;
+}
+
+.search-box:hover > .search-btn{
+    background-color: white;
+}
+
+.search-btn{
+    color: #ff3300;
+    float: right;
+    width: 40px;
+    height: 40 px;
+    border-radius: 50%;
+    background-color: #3366cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: 0.4s;
+}
+.search-txt{
+    border: none;
+    color: white;
+    background-color: #3366cc;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+}
+
+.search-txt::placeholder{
+    color: white;
+}
+
+#grille{
+    background-color: #ff6600;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+    width : auto;
+	display: grid;
+    margin-top: 80px;
+	column-gap: 0.5px;
+	grid-template-columns:  auto auto auto auto auto auto auto;
+}
+.cases{
+    width: 200px;
+    height: 200px;
+    border: 5px solid #ff0000 ;
+    border-radius: 10%;
+    text-align: center;
+    background-color:  #ff944d;
+}
+.images{
+    width: 70%;
+    top: 5px;
+    padding-left: 8%;  
+}
+
+.bouton{
+    background-color:  #004d80;
+    color: white;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 2px solid #003d66;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 45%;
+    margin-bottom: 20px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    box-shadow: 0 9px #595959;
+}
+
+.bouton:hover {
+    background-color: #002e4d;
+    color:  white;
+    box-shadow: 0 3px #595959;
+    margin-top: 22px;
+}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+.detail2{
+    height: 250px;
+}

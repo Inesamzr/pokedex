@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pokedex</title>
+    <!-- Import Styles -->
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="https://assets.pokemon.com/static2/_ui/img/favicon.ico">
+    <script src="main.js"></script>
+    
+    <script src="https://kit.fontawesome.com/809f464340.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body id="corps">
+    <nav>
+      <img id="logo-pokemon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/640px-International_Pok%C3%A9mon_logo.svg.png" alt="">
+    </nav>
+    <div class="nav">
+      <div class="search-box">
+        <input class="search-txt" type="text" placeholder="Type to search.." v-on:click= "research()" v-model="name">
+          <a href="search-btn" hreflang="#">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+      </div>
+    </div>
+
+    
+    <section id="grille">
+      <div :class = "{detail2 : element.showDetails}" class="cases" v-for="(element,index) in pokemons" :key="index" v-show="element.show" v-on:click="afficherinfos(index)">
+         <img class="images"  :src="element.img" alt="">
+        <b>{{ element.name }}</b><br>
+        <em> #{{ index }}</em>
+        <ul v-if="element.showDetails">
+          <li v-for="abi in element.abilities"> {{abi.ability.name}}</li>
+        </ul>
+      
+      </div>
+    
+    </section>
+
+    <button class= "bouton" v-on:click = "charger()" id="charger">Load more</button>
+
+    <script>
+      const App = app.mount('#corps')
+    </script>
+  </body>
+</html>
+
+
