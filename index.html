@@ -18,9 +18,9 @@
     </nav>
     <div class="nav">
       <div class="search-box">
-        <input class="search-txt" type="text" placeholder="Type to search.." v-on:click= "research()" v-model="name">
+        <input class="search-txt" type="text" placeholder="Type to search.."  v-model="nameQ">
           <a href="search-btn" hreflang="#">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-magnifying-glass" v-on:click="research()"></i>
           </a>
       </div>
     </div>

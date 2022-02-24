@@ -3,7 +3,8 @@ const app = Vue.createApp({
         return{
              pokemons : [],
              number : 14,
-             name: ''
+             name: '',
+             nameQ:''
         } 
     },
     created(){
@@ -64,12 +65,12 @@ const app = Vue.createApp({
               
         },
         research(){
-            let nom = document.forms["Form"]["fname"].value ;
+            let nom = this.nameQ ;  
             console.log(nom);
             let nonTrouve = true
             let indice =0
-            while(indice<pokemons.length & nonTrouve){
-                if(pokemons[indice].name == nom){
+            while(indice<this.pokemons.length & nonTrouve){
+                if(this.pokemons[indice].name == nom){
                     nonTrouve = false 
                 }
                 else{
@@ -78,27 +79,24 @@ const app = Vue.createApp({
             }
 
             for(let i=0; i < this.pokemons.length; i++){
-                pokemons[i].show = false
+                this.pokemons[i].show = false
             }
 
-            if(indice<pokemons.length){
-                pokemons[indice].show = true
+            if(indice<this.pokemons.length){
+                this.pokemons[indice].show = true
             }
             else{
-                var url = 'https://pokeapi.co/api/v2/pokemon/'+name;
-                var request = new XMLHttpRequest();
-                request.open('GET',url);
-                request.responseType = 'json';
-                request.send();
-
-                request.onload = function() {
+                var url = 'https://pokeapi.co/api/v2/pokemon/'+nom;
+                fetch(url).then(res =>res.json())
+                .then(data => {
                     let poke = {id: null, name:"", img:"" , abilities:null, show : true, showDetails : false}
-                    poke.name = request.response.name;
-                    poke.id = request.response.id;
-                    poke.img = request.response.sprites.front_default;
-                    poke.abilities = request.response.abilities;
-                    this.pokemons.push(poke);
-                }
+                    poke.name = data.name
+                    poke.id = data.id
+                    poke.img = data.sprites.front_default
+                    poke.abilities = data.abilities
+                    this.pokemons.push(poke)
+                })
+                this.number += 1
             }
         },
         //searchTask(){
